@@ -14,7 +14,7 @@ read BRANCH1
 
 echo 'insira o nome do projeto'
 
-read PROJECT
+# read PROJECT
 
 git remote add temp $REPO1
 
