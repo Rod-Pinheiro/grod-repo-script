@@ -10,7 +10,6 @@ read BRANCH1
 
 git remote add temp $REPO1
 
-
 git push temp $BRANCH1:main
 
 git remote remove temp 
