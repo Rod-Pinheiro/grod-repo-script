@@ -28,7 +28,7 @@ else
     Isso apagara todos os .test.js do projeto (y/n)?" CONT
     if [ $CONT = "y" ]
     then
-        git --git-dir $2/.git --work-tree=$2 rm './*.test.js' './*.md' -r
+        git --git-dir $2/.git --work-tree=$2 rm './*.test.js' './*.md' -r --ignore-unmatch
         git --git-dir $2/.git --work-tree=$2 commit -a -m "Remove os testes e o README da Trybe"
         
     fi
