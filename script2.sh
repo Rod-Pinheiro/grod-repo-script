@@ -22,7 +22,7 @@ git --git-dir $2/.git checkout -b main
 
 if [ "$3" = "private" ]
 then
-    gh repo create $1 --private --source=$2 --remote=temp --push
+    gh repo create $1 --private --source=$2 --remote=$1 --push
 else
     read -p "Voce gostaria de apagar os testes e o README?
     Isso apagara todos os .test.js do projeto (y/n)?" CONT
@@ -32,14 +32,14 @@ else
         git --git-dir $2/.git --work-tree=$2 commit -a -m "Remove os testes e o README da Trybe"
         
     fi
-    gh repo create $1 --public --source=$2 --remote=temp --push
+    gh repo create $1 --public --source=$2 --remote=$1 --push
 fi
 
 git --git-dir $2/.git checkout $USER_BRANCH
 git --git-dir $2/.git branch -D main
 
 
-git --git-dir $2/.git remote remove temp
+git --git-dir $2/.git remote remove $1
 
 gh repo view $1 -w
 
