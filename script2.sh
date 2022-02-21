@@ -13,10 +13,6 @@ read USER_BRANCH_INPUT
 
 USER_BRANCH=$(git --git-dir $2/.git for-each-ref --format="%(if)%(authorname)%(then) %(refname:short)%(end)" refs/heads/"*$USER_BRANCH_INPUT*" )
 
-
-
-
-
 git --git-dir $2/.git checkout $USER_BRANCH
 git --git-dir $2/.git checkout -b main
 
@@ -28,7 +24,7 @@ else
     Isso apagara todos os .test.js do projeto (y/n)?" CONT
     if [ $CONT = "y" ]
     then
-        git --git-dir $2/.git --work-tree=$2 rm './*.test.js' './*.md' -r --ignore-unmatch
+        git --git-dir $2/.git --work-tree=$2 rm "*.test.js" "*.md" "cypress" -r --ignore-unmatch
         git --git-dir $2/.git --work-tree=$2 commit -a -m "Remove os testes e o README da Trybe"
         
     fi
