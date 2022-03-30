@@ -52,9 +52,9 @@ Describe your project
 
 The following tools were used in this project:
 
-- [Bash]()
-- [GitHub-CLI]()
-- [Git]()
+- [Bash](https://www.gnu.org/software/bash/)
+- [GitHub-CLI](https://github.com/cli/cli)
+- [Git](https://git-scm.com)
 
 
 ## :white_check_mark: Requirements ##
