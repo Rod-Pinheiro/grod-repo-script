@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Codeleap Frontend" />
+<!--   <img src="./.github/app.gif" alt="Codeleap Frontend" /> -->
 
   &#xa0;
 
@@ -9,7 +9,7 @@
 <h1 align="center">Repo Clone Script</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/codeleap-frontend?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{Rod-Pinheiro}}/codeleap-frontend?color=56BEB8">
 
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/codeleap-frontend?color=56BEB8">
 
@@ -34,7 +34,7 @@
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
+  <a href="https://github.com/Rod-Pinheiro" target="_blank">Author</a>
 </p>
 
 <br>
@@ -45,9 +45,8 @@ Describe your project
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: Clone your trybe repositories to your own github;\
+
 
 ## :rocket: Technologies ##
 
@@ -69,23 +68,24 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 $ git clone https://github.com/Rod-Pinheiro/grod-repo-script
 
 # Access
-$ cd codeleap-frontend
+$ cd grod-clone-repo
 
-# Install dependencies
-$ yarn
+# Install GitHub-CLI
+# run gh auth login and connect your github account
+$ gh auth login
 
 # Run the project
-$ yarn start
+$ ./script2.sh NewRepo ./RelativePath (Must use relative path without / on the end)
 
-# The server will initialize in the <http://localhost:3000>
+# The script will list your local branchs, rewrite the name of your branch and press enter
 ```
 
-## :memo: License ##
+<!-- ## :memo: License ## -->
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+<!-- This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file. -->
 
 
-Made with :heart: by <a href="https://github.com/Rod-Pinheiro" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/Rod-Pinheiro" target="_blank">Rod-Pinheiro</a>
 
 &#xa0;
 
