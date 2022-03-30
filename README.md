@@ -6,7 +6,7 @@
   <!-- <a href="https://codeleapfrontend.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">Codeleap Frontend</h1>
+<h1 align="center">Repo Clone Script</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/codeleap-frontend?color=56BEB8">
@@ -53,21 +53,20 @@ Describe your project
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [Bash]()
+- [GitHub-CLI]()
+- [Git]()
+
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [GitHub-CLI](https://github.com/cli/cli#installation) installed.
 
 ## :checkered_flag: Starting ##
 
 ```bash
 # Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/codeleap-frontend
+$ git clone https://github.com/Rod-Pinheiro/grod-repo-script
 
 # Access
 $ cd codeleap-frontend
@@ -86,7 +85,7 @@ $ yarn start
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/Rod-Pinheiro" target="_blank">{{YOUR_NAME}}</a>
 
 &#xa0;
 
