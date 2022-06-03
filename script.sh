@@ -1,25 +1,73 @@
-# Esse script pode ser usado pra copiar o repositorio local para um novo repositorio previamente criado
-# usando a url ssh
+# Esse script depende que pacote gh do github esteja instalado
+# cria a repositorio remoto e faz o push automaticamente
 
+# execucao do script: ./script.sh projectName ../projectFolder
 
 #!/bin/sh
 
-echo 'insira a url ssh do repositorio de destino '
+echo 'iniciando'
 
-read REPO1
+# Definindo qual branch sera usada para criar o repositorio remoto
 
-echo 'insira o nome exato da sua branch'
+LOCAL_BRANCHS=$(git --git-dir $2/.git for-each-ref --format="%(if)%(authorname)%(then)%(refname:short)%(end)" refs/heads/ --sort=authordate)
+echo "digite o nome da sua branch:\n\n$LOCAL_BRANCHS\n\n"
+read USER_BRANCH_INPUT
 
-read BRANCH1
+USER_BRANCH=$(git --git-dir $2/.git for-each-ref --format="%(if)%(authorname)%(then) %(refname:short)%(end)" refs/heads/"*$USER_BRANCH_INPUT*" )
 
-echo 'insira o nome do projeto'
+git --git-dir $2/.git checkout $USER_BRANCH
+git --git-dir $2/.git checkout -b $USER_BRANCH$1
 
-# read PROJECT
+# ----------------------------------------------------------------------------------------------------------------------
 
-git remote add temp $REPO1
+# Verifica se o usuario gostaria de apagar os testes e o Readme do projeto
 
-git push temp $BRANCH1:main
+read -p "Voce gostaria de apagar os testes e o README?
+Isso apagara todos os .test.js do projeto (y/n)?" CONT
+if [ $CONT = "y" ]
+then
+    git --git-dir $2/.git --work-tree=$2 rm "*.test.js" "*.md" "cypress*" ".trybe" -r --ignore-unmatch
+    cp ./utils/README.md $2/README.md
+    git --git-dir $2/.git --work-tree=$2 add -A
+    git --git-dir $2/.git --work-tree=$2 status
+    git --git-dir $2/.git --work-tree=$2 commit -m "Remove os testes e o README da Trybe"
+    
+fi
 
-git remote remove temp 
+# ----------------------------------------------------------------------------------------------------------------------
 
-echo 'Processo terminado'
+# Cria o repositorio remoto
+
+if [ "$3" = "private" ]
+then
+    gh repo create $1 --private --source=$2 --remote=$1 --push
+else
+    
+    gh repo create $1 --public --source=$2 --remote=$1 --push
+fi
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+gh repo edit $1 --default-branch main
+
+# Restaura o repositorio local
+
+git --git-dir $2/.git checkout -f $USER_BRANCH
+git --git-dir $2/.git branch -D -q $USER_BRANCH$1
+git --git-dir $2/.git remote remove $1
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# Finaliza o script com sucesso
+echo "$(tput setaf 2)Processo Concluido$(tput sgr 0)"
+echo "Gostaria de abrir o repositorio no navegador? (y/n)"
+read OPEN_BROWSER
+
+if [ $OPEN_BROWSER = "y" ]
+then
+echo "$(tput setaf 2)Abrindo $1 $(tput sgr 0)"
+    gh repo view $1 -w
+fi
+# ----------------------------------------------------------------------------------------------------------------------
+
